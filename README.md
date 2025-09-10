@@ -12,10 +12,10 @@ Proyecto generado con jmater
 2. Instrucciones para correr Automatizaciones: ✔️
    - Abrir Jmeter 5.6.3
    - Archivo -> Abrir.
-   - Buscamos el archivo con el nombre "login_test.jmx" el cual se encuentra en las carpetas compartida. "Sofka\PruebasDeCarga\Ejercicio1"
+   - Buscamos el archivo con el nombre "login_test.jmx".
    - Desplegamos el "Thread Group".
    - Abrimos la opcion "CSV Data Set Config".
-   - En el "Nombre de Archivo" buscamos el archivo csv con el nombre "credentials.csv" el cual se encuentra en las carpetas compartida "Sofka\PruebasDeCarga\Ejercicio1".
+   - En el "Nombre de Archivo" buscamos el archivo csv con el nombre "credentials.csv".
   
   
    **** EJECUTAR ****
