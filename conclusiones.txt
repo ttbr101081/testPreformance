@@ -1,0 +1,56 @@
+Resumen de métricas principales
+
+Total de solicitudes: 5.543
+
+Tiempo medio de respuesta: 538 ms
+
+Tiempo mínimo: 363 ms
+
+Tiempo máximo: 7.983 ms
+
+Desviación estándar: 674,77 ms (alta variabilidad en las respuestas)
+
+Porcentaje de error: 0,92 % (~51 errores)
+
+Rendimiento promedio: 91,94 solicitudes/segundo
+
+Tasa de datos recibidos: 80,5 KB/sec
+
+Tasa de datos enviados: 21,53 KB/sec
+
+Media de bytes por respuesta: 896,5 bytes
+
+Análisis
+
+Rendimiento estable, pero con variabilidad:
+El promedio de 538 ms para un login es aceptable en muchos contextos, pero la desviación estándar de 674 ms indica que algunas peticiones tardan bastante más de lo esperado.
+
+Límites superiores preocupantes:
+El tiempo máximo de 7,9 segundos es demasiado alto para un login. Aunque ocurre en pocos casos, puede impactar la experiencia de usuario significativamente.
+
+Errores bajos pero existentes:
+Un 0,92 % de error no es crítico, pero en producción cada fallo en login tiene un peso mayor. Conviene revisar la causa (timeouts, credenciales inválidas, saturación del backend).
+
+Consumo de datos:
+Cada respuesta intercambia en promedio ~900 bytes, lo cual es ligero. El API es eficiente en payloads.
+
+Capacidad de manejo concurrente:
+Sostener ~92 requests/segundo indica que el sistema maneja carga moderada sin colapsar, pero la latencia máxima revela posibles cuellos de botella en picos.
+
+Conclusiones y recomendaciones
+
+El API puede manejar carga concurrente moderada, pero debe mejorarse la consistencia de tiempos de respuesta.
+
+El pico de 7,9 s sugiere que hay operaciones bloqueantes o saturación en momentos puntuales.
+
+El % de error debe reducirse a <0,5 %, idealmente 0 %.
+
+Se recomienda:
+
+Revisar logs de backend para correlacionar con las solicitudes lentas.
+
+Optimizar consultas o accesos a base de datos relacionados con login.
+
+Considerar caching de validaciones de usuario/token.
+
+Repetir la prueba con mayor volumen para ver el umbral de saturación.
